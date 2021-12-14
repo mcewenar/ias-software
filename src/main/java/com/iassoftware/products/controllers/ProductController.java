@@ -38,7 +38,7 @@ public class ProductController {
         return repository.findOne(referenceId);
     }
     //Delete by Idreference
-    @DeleteMapping(value = "/{referenceId")
+    @DeleteMapping(value = "/{referenceId}")
     public Product deleteProduct(@PathVariable("referenceId") String productId) {
         //Verify that already product exist. If not find it, we should create a throw advise. (Not made yet)
         Product productFound = repository.findOne(productId);

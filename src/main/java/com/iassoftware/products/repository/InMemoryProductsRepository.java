@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.*;
 
-public class InMemoryPersonsRepository {
     //These in memory repositories can then be injected into, for example, a service that you want to test
 //The base class InMemoryJpaRepository makes it easy to create in-memory versions of Spring Data JPA repositories.
 // The reason to use such repositories when testing is that they can be created and destroyed very quickly.
@@ -59,5 +58,3 @@ public class InMemoryPersonsRepository {
         }
 
     }
-
-}
