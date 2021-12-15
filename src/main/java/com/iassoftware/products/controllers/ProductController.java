@@ -22,7 +22,6 @@ public class ProductController {
     //Diamond operators allow us bringing Products Object from clientside
     //Return a Products list
     public List<Product> productList() {
-
         return repository.list();
     }
     //Post decorator for create any product from Clientside
@@ -33,7 +32,7 @@ public class ProductController {
     }
     //Get product by id
     @GetMapping(value="/{referenceId}")
-    public Product getProduct(@PathVariable("id") String referenceId) {
+    public Product getProduct(@PathVariable("referenceId") String referenceId) {
 
         return repository.findOne(referenceId);
     }

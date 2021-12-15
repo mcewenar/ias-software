@@ -10,7 +10,7 @@ public class ProductsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProductsApplication.class, args);
 
-		Product product = new Product("123","Bo",23,true);
+		//Product product = new Product("123","Bo",23,true);
 	}
 
 }

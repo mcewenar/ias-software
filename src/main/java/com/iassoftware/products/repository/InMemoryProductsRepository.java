@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.*;
 
-    //These in memory repositories can then be injected into, for example, a service that you want to test
+//These in memory repositories can then be injected into, for example, a service that you want to test
 //The base class InMemoryJpaRepository makes it easy to create in-memory versions of Spring Data JPA repositories.
 // The reason to use such repositories when testing is that they can be created and destroyed very quickly.
-    @Component
+    //@Component
     public class InMemoryProductsRepository implements ProductRepository { //Implement all methods defined for ProductRepository
         private final Map<String, Product> database = new HashMap<>(); //Is like Javascript object or Python Dictionary
 
