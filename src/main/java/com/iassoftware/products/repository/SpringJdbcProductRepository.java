@@ -67,7 +67,7 @@ public class SpringJdbcProductRepository implements ProductRepository {
             ps.setString(2, product.getReferenceId());
             ps.setInt(3, product.getAmount());
             ps.setBoolean(4,product.isExistence());
-            ps.setString(3, referenceId);
+            ps.setString(5, referenceId);
         });
 
     }

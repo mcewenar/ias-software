@@ -1,4 +1,4 @@
-//Forma tradicional:
+//Forma tradicional: "A pedal"
 
 package com.iassoftware.products.repository;
 import com.iassoftware.products.domain.Product;
