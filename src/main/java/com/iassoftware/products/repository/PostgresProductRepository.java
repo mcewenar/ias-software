@@ -1,8 +1,7 @@
 //Forma tradicional: "A pedal"
 
-package com.iassoftware.products.repository;
+/*package com.iassoftware.products.repository;
 import com.iassoftware.products.domain.Product;
-import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -82,7 +81,7 @@ public class PostgresProductRepository implements ProductRepository {
         ) {
             ps.setString(1, product.getReferenceId());
             ps.setString(2, product.getProductName());
-            ps.setInt(3, product.getAmount());
+            ps.setInt(3, product.getPrice());
             ps.setBoolean(4, product.isExistence());
             ps.execute();
 
@@ -100,7 +99,7 @@ public class PostgresProductRepository implements ProductRepository {
         ) {
             ps.setString(1, product.getReferenceId());
             ps.setString(2, product.getProductName());
-            ps.setInt(3,product.getAmount());
+            ps.setInt(3,product.getPrice());
             ps.setBoolean(4,product.isExistence());
             ps.setString(5, id); //Id search
             ps.execute();
@@ -126,3 +125,4 @@ public class PostgresProductRepository implements ProductRepository {
     }
 }
 
+*/

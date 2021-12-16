@@ -1,6 +1,10 @@
 package com.iassoftware.products.controllers;
 
-import com.iassoftware.products.domain.Product;
+import com.iassoftware.products.domain.*;
+import com.iassoftware.products.model.CreateProductInput;
+import com.iassoftware.products.model.CreateProductOutput;
+import com.iassoftware.products.model.UpdateProductInput;
+import com.iassoftware.products.model.UpdateProductOutput;
 import com.iassoftware.products.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -15,6 +19,7 @@ public class ProductController {
 
     //Constructor
     public ProductController(ProductRepository repository) {
+
         this.repository = repository;
     }
     //Request HTTP using decorators
@@ -26,30 +31,48 @@ public class ProductController {
     }
     //Post decorator for create any product from Clientside
     @PostMapping
-    public Product createPerson(@RequestBody Product product) {
-        repository.create(product); //Bring this method from repository dependency
-        return product;
+    public CreateProductOutput createProduct(@RequestBody CreateProductInput input) {
+        //Enter body HTTP requests from client (CreateInput), return body HTTP from Domain (CreateOutput)
+        Product product = new Product(
+                ProductReference.random(), //Generate into backend
+                new ProductName(input.getProductName()), //get it From client side
+                new ProductPrice(input.getPrice()), //get it From client side
+                new ProductDescription(input.getDescription()) //get it From client side
+        );
+        repository.create(product);
+        return new CreateProductOutput(product);
+        //Bring this method from repository dependency
     }
     //Get product by id
     @GetMapping(value="/{referenceId}")
-    public Product getProduct(@PathVariable("referenceId") String referenceId) {
-
-        return repository.findOne(referenceId);
+    public Product getProduct(
+            @PathVariable("referenceId") String referenceId) {
+        final ProductReference id = ProductReference.fromString(referenceId);
+        return repository.findOne(id); //???
     }
     //Delete by Idreference
     @DeleteMapping(value = "/{referenceId}")
-    public Product deleteProduct(@PathVariable("referenceId") String productId) {
+    public void deleteProduct(
+            @PathVariable("referenceId") String productId) {
         //Verify that already product exist. If not find it, we should create a throw advise. (Not made yet)
-        Product productFound = repository.findOne(productId);
-        repository.delete(productId);
-        return productFound;
+        final ProductReference productFound = ProductReference.fromString(productId);
+        repository.delete(productFound);
     }
     //Update a product by Idreference
-    @PutMapping(value = "/{referenceId}")
+    @PutMapping(value = "/{referenceId}") //Update receive body from client, likewise Post http
     //Post, Patch and Put need a body
-    public Product updateProduct(@PathVariable("referenceId") String referenceId,
-                                 @RequestBody Product product) {
-        repository.update(referenceId, product);
-        return repository.findOne(referenceId);
+    public UpdateProductOutput updateProduct(
+            @PathVariable("referenceId") String unsafeId,
+            @RequestBody UpdateProductInput input) {
+        final ProductReference id = ProductReference.fromString(unsafeId);
+        Product newProduct = new Product(
+                id,
+                new ProductName(input.getProductName()),
+                new ProductPrice(input.getPrice()),
+                new ProductDescription(input.getDescription())
+        );
+        repository.update(id, newProduct);
+        final Product found = repository.findOne(id);
+        return new UpdateProductOutput(found);
     }
 }
