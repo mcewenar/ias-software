@@ -3,9 +3,10 @@ package com.iassoftware.products.services;
 import com.iassoftware.products.domain.personDomain.Person;
 import com.iassoftware.products.domain.personDomain.PersonId;
 import com.iassoftware.products.repository.personRepository.PersonsRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PersonServices {
     private PersonsRepository repository;
 

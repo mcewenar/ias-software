@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class ProductName {
-    private static final Pattern pattern = Pattern.compile("^[a-zA-Z\\s:]{10,64}$"); //Lowercase: a-z, Uppercase: A-Z and letters length 10 to 64.
+    private static final Pattern pattern = Pattern.compile("^[a-zA-Z\\s:]{1,64}$"); //Lowercase: a-z, Uppercase: A-Z and letters length 10 to 64.
     private final String value;
     public ProductName(String value) {
         Objects.requireNonNull(value, "Product name can not be null");

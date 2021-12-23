@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@RestController
+@RequestMapping(value = "/persons")
 public class PersonController {
     private final PersonServices services;
 

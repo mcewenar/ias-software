@@ -1,6 +1,6 @@
 package com.iassoftware.products.repository.productRepository;
 
-import com.iassoftware.products.domain.*;
+import com.iassoftware.products.domain.Product;
 import com.iassoftware.products.domain.productDomain.ProductDescription;
 import com.iassoftware.products.domain.productDomain.ProductName;
 import com.iassoftware.products.domain.productDomain.ProductPrice;

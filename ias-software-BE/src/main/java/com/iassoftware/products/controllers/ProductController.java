@@ -1,6 +1,6 @@
 package com.iassoftware.products.controllers;
 
-import com.iassoftware.products.domain.*;
+import com.iassoftware.products.domain.Product;
 import com.iassoftware.products.domain.productDomain.ProductDescription;
 import com.iassoftware.products.domain.productDomain.ProductName;
 import com.iassoftware.products.domain.productDomain.ProductPrice;
@@ -63,7 +63,7 @@ public class ProductController {
     //Update a product by id reference
     @PutMapping(value = "/{referenceId}") //Update receive body from client, likewise Post http
     //Post, Patch and Put need a body
-    public UpdateProductOutput updateProduct(@PathVariable("id") String unsafeId, @RequestBody UpdateProductInput input) {
+    public UpdateProductOutput updateProduct(@PathVariable("referenceId") String unsafeId, @RequestBody UpdateProductInput input) {
         final ProductReference id = ProductReference.fromString(unsafeId);
         Product newProduct = new Product(id, new ProductName(input.getProductName()), new ProductPrice(input.getPrice()), new ProductDescription(input.getDescription()));
         final Product updated = services.updateProduct(id, newProduct);

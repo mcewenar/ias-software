@@ -1,4 +1,4 @@
-package com.iassoftware.products.configuration.ProductJackson.jackson;
+package com.iassoftware.products.configuration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.iassoftware.products.configuration.InternalModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

@@ -2,8 +2,6 @@ package com.iassoftware.products.model.personModel;
 
 import com.iassoftware.products.domain.personDomain.Person;
 
-import java.time.LocalDate;
-
 public class CreatePersonOutput {
     private Person person;
 

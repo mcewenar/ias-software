@@ -71,6 +71,6 @@ public class SpringJdbcPersonRepository implements PersonsRepository {
     @Override
     public void delete(PersonId id) {
         String sqlQuery = "delete from persons where id_number = ?";
-        jdbcTemplate.update(sqlQuery, id);
+        jdbcTemplate.update(sqlQuery, id.toString());
     }
 }

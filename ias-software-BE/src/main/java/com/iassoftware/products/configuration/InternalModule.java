@@ -1,12 +1,16 @@
-package com.iassoftware.products.configuration.ProductJackson.jackson;
+package com.iassoftware.products.configuration;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductDescriptionParser;
-import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductIdParser;
-import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductNameParser;
-import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductPriceParser;
+import com.iassoftware.products.configuration.PersonJacksonCodecs.PersonIdParser;
+import com.iassoftware.products.configuration.PersonJacksonCodecs.PersonNameParser;
+import com.iassoftware.products.configuration.ProductJacksonCodecs.ProductDescriptionParser;
+import com.iassoftware.products.configuration.ProductJacksonCodecs.ProductIdParser;
+import com.iassoftware.products.configuration.ProductJacksonCodecs.ProductNameParser;
+import com.iassoftware.products.configuration.ProductJacksonCodecs.ProductPriceParser;
+import com.iassoftware.products.domain.personDomain.PersonId;
+import com.iassoftware.products.domain.personDomain.PersonName;
 import com.iassoftware.products.domain.productDomain.ProductDescription;
 import com.iassoftware.products.domain.productDomain.ProductName;
 import com.iassoftware.products.domain.productDomain.ProductPrice;
@@ -17,6 +21,8 @@ public class InternalModule extends SimpleModule {
     private static final String NAME = "InternalModule";
 
     public InternalModule() {
+
+        //PRODUCT:
         super(NAME, Version.unknownVersion());
         addSerializer(ProductReference.class, new ProductIdParser.Serializer());
         addDeserializer(ProductReference.class,new ProductIdParser.Deserializer());
@@ -29,5 +35,17 @@ public class InternalModule extends SimpleModule {
 
         addSerializer(ProductDescription.class, new ProductDescriptionParser.Serializer());
         addDeserializer(ProductDescription.class, new ProductDescriptionParser.Deserializer());
+
+        //PERSONS:
+
+        addSerializer(PersonId.class, new PersonIdParser.Serializer());
+        addDeserializer(PersonId.class, new PersonIdParser.Deserializer());
+
+        addSerializer(PersonName.class, new PersonNameParser.Serializer());
+        addDeserializer(PersonName.class, new PersonNameParser.Deserializer());
+
+        //SHOPPING CAR:
+
+
     }
 }

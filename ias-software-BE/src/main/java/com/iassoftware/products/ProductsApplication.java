@@ -1,6 +1,5 @@
 package com.iassoftware.products;
 
-import com.iassoftware.products.domain.Product;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
