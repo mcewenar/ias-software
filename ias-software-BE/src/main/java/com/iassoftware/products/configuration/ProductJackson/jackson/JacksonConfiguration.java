@@ -1,4 +1,4 @@
-package com.iassoftware.products.configuration.jackson;
+package com.iassoftware.products.configuration.ProductJackson.jackson;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;

@@ -1,12 +1,12 @@
-package com.iassoftware.products.configuration.jackson;
+package com.iassoftware.products.configuration.ProductJackson.jackson;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-import com.iassoftware.products.configuration.jackson.codecs.ProductDescriptionParser;
-import com.iassoftware.products.configuration.jackson.codecs.ProductIdParser;
-import com.iassoftware.products.configuration.jackson.codecs.ProductNameParser;
-import com.iassoftware.products.configuration.jackson.codecs.ProductPriceParser;
+import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductDescriptionParser;
+import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductIdParser;
+import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductNameParser;
+import com.iassoftware.products.configuration.ProductJackson.jackson.codecs.ProductPriceParser;
 import com.iassoftware.products.domain.productDomain.ProductDescription;
 import com.iassoftware.products.domain.productDomain.ProductName;
 import com.iassoftware.products.domain.productDomain.ProductPrice;

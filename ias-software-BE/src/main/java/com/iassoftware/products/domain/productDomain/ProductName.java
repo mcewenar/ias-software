@@ -7,7 +7,7 @@ public class ProductName {
     private static final Pattern pattern = Pattern.compile("^[a-zA-Z\\s:]{10,64}$"); //Lowercase: a-z, Uppercase: A-Z and letters length 10 to 64.
     private final String value;
     public ProductName(String value) {
-        //Objects.requireNonNull(value, "Product name can not be null");
+        Objects.requireNonNull(value, "Product name can not be null");
         String trimmedValue = value.trim();
         if(trimmedValue.length()  == 0) {
             throw new IllegalArgumentException("Product name can not be empty");
