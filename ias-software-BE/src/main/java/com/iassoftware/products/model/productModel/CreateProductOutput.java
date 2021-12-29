@@ -1,6 +1,7 @@
 package com.iassoftware.products.model.productModel;
 
-import com.iassoftware.products.domain.Product;
+
+import com.iassoftware.products.domain.productDomain.Product;
 
 public class CreateProductOutput {
     private Product product;

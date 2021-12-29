@@ -1,7 +1,7 @@
 package com.iassoftware.products.services;
 
 
-import com.iassoftware.products.domain.Product;
+import com.iassoftware.products.domain.productDomain.Product;
 import com.iassoftware.products.domain.productDomain.ProductReference;
 import com.iassoftware.products.repository.productRepository.ProductRepository;
 import org.springframework.stereotype.Service;

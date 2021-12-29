@@ -1,5 +1,6 @@
 package com.iassoftware.products.repository.productRepository;
-import com.iassoftware.products.domain.Product;
+
+import com.iassoftware.products.domain.productDomain.Product;
 import com.iassoftware.products.domain.productDomain.ProductReference;
 
 import java.util.List;

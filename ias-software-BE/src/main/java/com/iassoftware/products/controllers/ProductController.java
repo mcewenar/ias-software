@@ -1,10 +1,7 @@
 package com.iassoftware.products.controllers;
 
-import com.iassoftware.products.domain.Product;
-import com.iassoftware.products.domain.productDomain.ProductDescription;
-import com.iassoftware.products.domain.productDomain.ProductName;
-import com.iassoftware.products.domain.productDomain.ProductPrice;
-import com.iassoftware.products.domain.productDomain.ProductReference;
+
+import com.iassoftware.products.domain.productDomain.*;
 import com.iassoftware.products.model.productModel.CreateProductInput;
 import com.iassoftware.products.model.productModel.CreateProductOutput;
 import com.iassoftware.products.model.productModel.UpdateProductInput;

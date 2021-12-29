@@ -1,13 +1,7 @@
-package com.iassoftware.products.domain;
-
-import com.iassoftware.products.domain.productDomain.ProductDescription;
-import com.iassoftware.products.domain.productDomain.ProductName;
-import com.iassoftware.products.domain.productDomain.ProductPrice;
-import com.iassoftware.products.domain.productDomain.ProductReference;
+package com.iassoftware.products.domain.productDomain;
 
 import java.util.Objects;
 
-//id,nombre,descripcion,precio
 public class Product {
     //Privates attribute that restrict access since other class or Package. Then, we create getters
     //and setters for accessing to this.

@@ -1,10 +1,7 @@
 package com.iassoftware.products.repository.productRepository;
 
-import com.iassoftware.products.domain.Product;
-import com.iassoftware.products.domain.productDomain.ProductDescription;
-import com.iassoftware.products.domain.productDomain.ProductName;
-import com.iassoftware.products.domain.productDomain.ProductPrice;
-import com.iassoftware.products.domain.productDomain.ProductReference;
+
+import com.iassoftware.products.domain.productDomain.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -73,6 +70,5 @@ public class SpringJdbcProductRepository implements ProductRepository {
             ps.setString(3,product.getDescription().toString());
             ps.setString(4, referenceId.toString());
         });
-
     }
 }
