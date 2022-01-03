@@ -1,47 +1,40 @@
 package com.iassoftware.products.model.shoppingCartModel;
 
-import com.iassoftware.products.domain.personDomain.Person;
-import com.iassoftware.products.domain.personDomain.PersonId;
+
 import com.iassoftware.products.domain.productDomain.Product;
-import com.iassoftware.products.domain.shoppingCartDomain.ProductAmount;
-import com.iassoftware.products.domain.shoppingCartDomain.ShoppingCartId;
+import com.iassoftware.products.domain.shoppingCartDomain.ShoppingCart;
+import com.iassoftware.products.domain.shoppingCartDomain.ShoppingCartProducts;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class CreateShoppingCartOutput {
+    private ShoppingCart shoppingCart;
+    private CreateShoppingCartInput input;
+    private List<Product> products;
 
 
-    private  ShoppingCartId id;
-    private PersonId personId;
-    private ProductAmount amount;
-    private Product product;
 
     public CreateShoppingCartOutput() {
+
     }
 
-
-    public ShoppingCartId getId() {
-        return id;
+    public CreateShoppingCartOutput(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 
-    public Person getPersonId() {
-        return personId;
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
     }
 
-    public ProductAmount getAmount() {
-        return amount;
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 
-    public Product getProduct() {
-        return product;
-    }
+    public void setHahsMap(HashMap<String,ShoppingCartProducts> shoppingCartProductsHashMap) {
 
-    @Override
-    public String toString() {
-        return "CartDto{" +
-                "id=" + id +
-                ", personId=" + personId +
-                ", quantity=" + amount +
-                ", product=" + product +
-                '}';
-    }
 
+    }
 }

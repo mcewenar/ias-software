@@ -17,7 +17,7 @@ public class CreateProductOutput {
         return product;
     }
 
-    public void setPerson(Product product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 }

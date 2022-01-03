@@ -1,43 +1,28 @@
 package com.iassoftware.products.model.shoppingCartModel;
 
-import com.iassoftware.products.domain.personDomain.Person;
-import com.iassoftware.products.domain.personDomain.PersonId;
+
 import com.iassoftware.products.domain.productDomain.Product;
-import com.iassoftware.products.domain.shoppingCartDomain.ProductAmount;
+
+import java.util.List;
 
 
 public class CreateShoppingCartInput {
-    private PersonId userId;
-    private Product product;
-    private ProductAmount amount;
+    private String userId;
+    private List<Product> products;
 
     public CreateShoppingCartInput() {
     }
 
-    public CreateShoppingCartInput(PersonId userId, Product product, ProductAmount amount) {
+    public CreateShoppingCartInput(String userId, List<Product> products) {
         this.userId = userId;
-        this.product = product;
-        this.amount = amount;
+        this.products = products;
     }
 
-    @Override
-    public String toString() {
-        return "CartDto{" +
-                ", userId=" + userId +
-                ", product=" + product +
-                ", amount=" + amount +
-                ",";
-    }
-
-    public PersonId getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public ProductAmount getAmount() {
-        return amount;
+    public List<Product> getProduct() {
+        return products;
     }
 }

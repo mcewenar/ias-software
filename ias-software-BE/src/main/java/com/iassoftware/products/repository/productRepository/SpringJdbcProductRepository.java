@@ -15,17 +15,20 @@ public class SpringJdbcProductRepository implements ProductRepository {
 
         this.jdbcTemplate = jdbcTemplate;
     }
-    private final RowMapper<Product> rowMapper = (resultSet, rowNum) -> { //Lambda function. Like Lambda Py or Arrow
+    private final RowMapper<Product> rowMapper = (resultSet, rowNum) -> {
+        //Lambda function. Like Lambda Py or Arrow
         // function in JS
         ProductReference productId = ProductReference.fromString(
                 resultSet.getString("reference_id")
         );
         ProductName productName = new ProductName(resultSet.getString("product_name"));
+        ProductAmount productAmount = new ProductAmount(resultSet.getInt("amount"));
         ProductPrice productPrice = new ProductPrice(resultSet.getInt("price"));
         ProductDescription productDescription = new ProductDescription(resultSet.getString("description"));
         return new Product(
                 productId,
                 productName,
+                productAmount,
                 productPrice,
                 productDescription
         );
@@ -46,12 +49,13 @@ public class SpringJdbcProductRepository implements ProductRepository {
 
     @Override
     public void create(Product product) {
-        String sqlQuery = "INSERT INTO products(reference_id, product_name, price, description) values(?, ?, ?, ?)";
+        String sqlQuery = "INSERT INTO products(reference_id, product_name, amount, price, description) values(?, ?, ?, ?, ?)";
         jdbcTemplate.update(sqlQuery, ps -> {
             ps.setString(1, product.getReferenceId().toString());
             ps.setString(2, product.getProductName().toString());
-            ps.setInt(3,product.getPrice().asInteger());
-            ps.setString(4,product.getDescription().toString());
+            ps.setInt(3,product.getProductAmount().asInteger());
+            ps.setInt(4,product.getProductPrice().asInteger());
+            ps.setString(5,product.getDescription().toString());
         });
 
     }
@@ -63,12 +67,13 @@ public class SpringJdbcProductRepository implements ProductRepository {
     }
     @Override
     public void update(ProductReference referenceId, Product product) {
-        String sqlQuery = "UPDATE products SET product_name = ?, price = ?, description = ? WHERE reference_id = ?";
+        String sqlQuery = "UPDATE products SET product_name = ?, amount = ?, price = ?, description = ? WHERE reference_id = ?";
         jdbcTemplate.update(sqlQuery, ps -> {
             ps.setString(1, product.getProductName().toString());
-            ps.setInt(2, product.getPrice().asInteger());
-            ps.setString(3,product.getDescription().toString());
-            ps.setString(4, referenceId.toString());
+            ps.setInt(2, product.getProductAmount().asInteger());
+            ps.setInt(3, product.getProductPrice().asInteger());
+            ps.setString(4,product.getDescription().toString());
+            ps.setString(5, referenceId.toString());
         });
     }
 }

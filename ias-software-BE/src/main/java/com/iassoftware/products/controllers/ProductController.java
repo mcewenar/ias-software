@@ -35,9 +35,10 @@ public class ProductController {
         ProductReference random = ProductReference.random();
         ProductName productName = new ProductName(input.getProductName());
         ProductPrice productPrice = new ProductPrice(input.getPrice());
+        ProductAmount productAmount = new ProductAmount(input.getAmount());
         ProductDescription productDescription = new ProductDescription(input.getDescription());
 
-        Product product = new Product(random, productName, productPrice, productDescription);
+        Product product = new Product(random, productName, productAmount, productPrice, productDescription);
         Product createdProduct = services.createProduct(product);
 
         return new CreateProductOutput(createdProduct);
@@ -62,7 +63,7 @@ public class ProductController {
     //Post, Patch and Put need a body
     public UpdateProductOutput updateProduct(@PathVariable("referenceId") String unsafeId, @RequestBody UpdateProductInput input) {
         final ProductReference id = ProductReference.fromString(unsafeId);
-        Product newProduct = new Product(id, new ProductName(input.getProductName()), new ProductPrice(input.getPrice()), new ProductDescription(input.getDescription()));
+        Product newProduct = new Product(id, new ProductName(input.getProductName()), new ProductAmount(input.getAmount()), new ProductPrice(input.getPrice()), new ProductDescription(input.getDescription()));
         final Product updated = services.updateProduct(id, newProduct);
         return new UpdateProductOutput(updated);
     }

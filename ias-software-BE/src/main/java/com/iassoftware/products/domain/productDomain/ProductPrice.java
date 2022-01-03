@@ -6,7 +6,7 @@ public class ProductPrice {
 
     public ProductPrice(int value) {
         Objects.requireNonNull(value, "Product price can not be null");
-        if(value <= 0) {
+        if(value <= 0 || value > 100) {
             throw new IllegalArgumentException("Product price can not be less than 0");
         }
         this.value = value;

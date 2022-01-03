@@ -1,6 +1,6 @@
 package com.iassoftware.products.configuration;
 
-/*import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,4 +14,4 @@ public class WebApplicationConfiguration implements WebMvcConfigurer {
                 .allowedOrigins("http://localhost:3000")
                 .allowedHeaders("*");
     }
-}*/
+}

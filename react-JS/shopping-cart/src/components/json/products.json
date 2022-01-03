@@ -1,0 +1,20 @@
+[
+    {
+      "name": "Kellogs",
+      "price": 3500,
+      "amount": 14,
+      "description":"Arroz con chocolate"
+    },
+    {
+       "name": "Kellogs",
+       "price": 3500,
+       "amount": 14,
+       "description":"Arroz con chocolate"
+    },
+    {
+       "name": "Kellogs",
+       "price": 3500,
+       "amount": 14,
+       "description":"Arroz con chocolate"
+    }
+]
