@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default function Tab_headers(props) {
+export default function MenuProducts(props) {
     return(
         <div className="products">
             <table>
@@ -15,6 +15,14 @@ export default function Tab_headers(props) {
                     <th>Price</th>
                     <th>amount</th>
                     <th>description</th>
+                </tr>
+                <tr>
+                    <td>{props.name}</td>
+                    <td>{props.price}</td>
+                    <td>{props.amount}</td>
+                    <td>{props.description}</td>
+                    <td><button>+</button></td>
+                    <td><button>-</button></td>
                 </tr>
             </table>
         </div>

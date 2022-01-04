@@ -1,13 +1,14 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Route } from 'react-router-dom';
-import Menu from './components/menu_products';
-import Tab_headers from './components/table_header';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import CssBaseline from "@mui/material/CssBaseline";
+import MenuProducts from './components/pages/menu_products_page';
+import ApplicationBar from './components/app_bar';
 import ProductosJson from './components/json-test/products.json';
-import { Switch } from '@mui/material';
 
 function App() {
-  //const [state, setstate] = useState(0);
+  const [product, setProduct] = useState(0);
+  const [cart, setCart] = ([]);
   //Execute each that re-render web page.
   /*useEffect(() => {
     effect
@@ -16,29 +17,25 @@ function App() {
     }
   }, [loquequieresquerenderice])*/
   let productos = ProductosJson;
-  
+  //productsApi.getAllProducts();
   return (
     <>
-      <Switch>
-        <Route path="/">
-          <Tab_headers/>
-          {productos.map(producto => 
-            <Menu name={producto.name} price={producto.price} amount={producto.amount} 
+      <BrowserRouter>
+        <CssBaseline />
+        <ApplicationBar />
+        {ProductosJson.map(producto => 
+            <MenuProducts name={producto.name} price={producto.price} amount={producto.amount} 
             description={producto.description} />)}
             <button>Get Shopping-cart</button>
-        </Route>
-        <Route path="/persons">
-          <Tab_headers/>
-          {productos.map(producto => 
-            <Menu name={producto.name} price={producto.price} amount={producto.amount} 
-            description={producto.description} />)}
-            <button>Get Shopping-cart</button>
-        </Route>
-
-
-      </Switch>
-      
+      <Routes>
+          <Route path="/">
+          </Route>
+          <Route path="/persons">
+          </Route>
+      </Routes>
+      </BrowserRouter>
     </>
-  );
+    
+  );  
 }
 export default App;

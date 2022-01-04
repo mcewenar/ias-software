@@ -2,6 +2,7 @@ package com.iassoftware.products.domain.productDomain;
 import java.util.Objects;
 
 public class ProductPrice {
+
     private final int value;
 
     public ProductPrice(int value) {
@@ -10,6 +11,10 @@ public class ProductPrice {
             throw new IllegalArgumentException("Product price can not be less than 0");
         }
         this.value = value;
+    }
+
+    public int getPrice() {
+        return value;
     }
 
     public int asInteger() {

@@ -8,22 +8,22 @@ import java.util.Objects;
 
 public class ShoppingCartProducts {
     List<Product> product;
+    private int totalCost;
 
     public ShoppingCartProducts(List<Product> product) {
         Objects.requireNonNull(product, "product list can not be null");
         this.product = product;
+        this.totalCost = ShoppingCartPrice(product);
     }
+    //Method that calculates the total price of the shopping cart
     public int ShoppingCartPrice(List<Product> product) {
         int totalCost = 0;
         //We could use map function
         for(Product eachProduct: product) {
-            totalCost += eachProduct.getProductPrice().asInteger();
+            totalCost += eachProduct.getProductPrice().asInteger() * eachProduct.getProductAmount().asInteger();
         }
         return totalCost;
     }
-    /*public ShoppingCartClasification(List<Product> product, String Clasification) {
-    }*/
-
     public List<Product> getProduct() {
         return product;
     }

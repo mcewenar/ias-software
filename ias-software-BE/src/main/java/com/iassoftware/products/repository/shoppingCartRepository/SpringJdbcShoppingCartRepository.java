@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
 
 @Component
@@ -28,8 +29,8 @@ public class SpringJdbcShoppingCartRepository implements ShoppingCartRepository 
         );
         String personId = resultSet.getString("person_id").toString();
         ShoppingCartProducts shoppingCartProducts = new ShoppingCartProducts(resultSet.getObject("products", new ParameterizedTypeReference<List<Product>>)); //?
-        //ShoppingCartProducts shoppingCartProducts = new ShoppingCartProducts(resultSet.getObject("products",Class<List<Product>>));
         Instant createDate = resultSet.getDate("create_date").toInstant();
+        HashMap<String, Product> ShoppingCartByIdClient = assignIdToShoppingCart();
 
         return new ShoppingCart(
                 shoppingCartId,
@@ -44,6 +45,11 @@ public class SpringJdbcShoppingCartRepository implements ShoppingCartRepository 
         String sqlQuery = "SELECT * FROM shopping_cart ";
         return jdbcTemplate.query(sqlQuery, rowMapper);
     }
+    /*
+    public HashMap<String,Product> getShoppingCartByIdUser(){
+        String sqlQuery = "SELECT * shopping_cart WHERE id_user ";
+        return jdbcTemplate.queryForObject(sqlQuery, HashMap<String,ShoppingCartProducts> );
+    }*/
 
     @Override
     public ShoppingCart findOne(ShoppingCartId id) {

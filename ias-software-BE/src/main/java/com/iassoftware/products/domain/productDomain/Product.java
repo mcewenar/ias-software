@@ -9,10 +9,12 @@ public class Product {
     //For each class we must create our own class that performs the particular business logic. More readable.
     //Unique responsibility SOLID
     private final ProductReference referenceId;
+    private String classification;
     private final ProductName productName;
     private final ProductAmount productAmount;
     private final ProductPrice productPrice;
     private final ProductDescription description;
+
     //private final Instant getProduct; //This is provided for an import from java.time
 
     //Product's constructor
@@ -29,6 +31,7 @@ public class Product {
         //Objects.requireNonNull(getProduct, "Product name can not be null");
         this.referenceId = referenceId;
         this.productName = productName;
+        this.classification = ClassificationProduct(productPrice);
         this.productPrice = productPrice;
         this.description = description;
         this.productAmount = productAmount;
@@ -55,6 +58,26 @@ public class Product {
 
     public ProductAmount getProductAmount() {
         return productAmount;
+    }
+
+    public String getClassification() {
+        return classification;
+    }
+
+    public void setClassification(String classification) {
+        this.classification = classification;
+    }
+
+    public String ClassificationProduct(ProductPrice productPrice) {
+        if(productPrice.getPrice() < 50 )
+            classification = "Cheap";
+
+        else if (productPrice.getPrice() < 50 && productPrice.getPrice() < 199)
+            classification = "Normal";
+
+        else if (productPrice.getPrice() > 199)
+            classification = "Expensive";
+        return classification;
     }
 
     //This is an override polymorphism that allow us parsing objects to String.

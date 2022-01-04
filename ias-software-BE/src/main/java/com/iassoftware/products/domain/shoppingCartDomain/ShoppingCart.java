@@ -17,7 +17,6 @@ public class ShoppingCart {
 
     private final ShoppingCartId shoppingCartId;
     private final String clientId;
-    //private final ShoppingCartPrice shoppingCartPrice;
     private final ShoppingCartProducts shoppingCartProducts;
     private final Instant createdShoppingCart;
     private HashMap<String, ShoppingCartProducts> shoppingCartForPerson;

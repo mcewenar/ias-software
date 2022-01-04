@@ -24,7 +24,7 @@ const getProductById = async (productId) => {
     return await response.json();
   }
   
-const createProduct = async (response) => {
+const createProduct = async (request) => {
   const response = await fetch(`${BASE_URL}/${productsUrl}`, {
       "method": "POST",
       "body": JSON.stringify(request),
@@ -36,7 +36,7 @@ const createProduct = async (response) => {
   return await response.json();
 }
 
-const deleteProductById = async (response) => {
+const deleteProductById = async (productId) => {
   const response = await fetch(`${BASE_URL}/${productUrl}/${productId}`, {
     "method": "DELETE",
     "headers": {
@@ -60,7 +60,7 @@ const updateProductById = async (request,productId) => {
 }
 
 
-const product = {
+const productsApi = {
     getAllProducts,
     getProductById,
     createProduct,
