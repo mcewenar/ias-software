@@ -23,6 +23,7 @@ export default function MenuProducts(props) {
                     <td>{props.description}</td>
                     <td><button>+</button></td>
                     <td><button>-</button></td>
+                    <button>Delete</button>
                 </tr>
             </table>
         </div>

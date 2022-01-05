@@ -26,7 +26,7 @@ function App() {
         {ProductosJson.map(producto => 
             <MenuProducts name={producto.name} price={producto.price} amount={producto.amount} 
             description={producto.description} />)}
-            <button>Get Shopping-cart</button>
+            <button>Submit Shopping-cart</button>
       <Routes>
           <Route path="/">
           </Route>

@@ -2,19 +2,19 @@
     {
       "name": "Kellogs",
       "price": 3500,
-      "amount": 14,
-      "description":"Arroz con chocolate"
+      "amount": 1,
+      "description":"Vainilla"
     },
     {
-       "name": "Kellogs",
-       "price": 3500,
-       "amount": 14,
-       "description":"Arroz con chocolate"
+       "name": "Doritos",
+       "price": 2500,
+       "amount": 2,
+       "description":"De fresa"
     },
     {
-       "name": "Kellogs",
-       "price": 3500,
-       "amount": 14,
-       "description":"Arroz con chocolate"
+       "name": "Gelatinas X",
+       "price": 1000,
+       "amount": 4,
+       "description":"De arandanos"
     }
 ]
